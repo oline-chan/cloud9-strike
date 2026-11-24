@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Cloud9 Strike — Tactical FPS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="game-wrap">
+  <div id="topbar">
+    <div class="brand">CLOUD9 <span>STRIKE</span></div>
+    <div id="round-info">
+      <span id="round-label">ROUND 1</span>
+      <span id="score-label">ATK 0 — 0 DEF</span>
+      <span id="round-timer">2:00</span>
+    </div>
+    <div id="credits-box">₡ <span id="credits">800</span></div>
+  </div>
+
+  <div id="canvas-wrap">
+    <canvas id="game" width="960" height="600"></canvas>
+
+    <div id="killfeed"></div>
+    <div id="center-msg"></div>
+    <div id="charge-status">CHARGE: CARRIED</div>
+    <div id="lock-hint" class="hidden">CLICK TO LOCK MOUSE</div>
+
+    <div id="buy-panel" class="hidden">
+      <h2>BUY PHASE</h2>
+      <p class="buy-sub">Round starts in <span id="buy-timer">15</span>s — press Enter to start now</p>
+      <div id="shop-items"></div>
+      <button id="start-round-btn" class="btn primary">START ROUND</button>
+    </div>
+
+    <div id="start-screen" class="overlay">
+      <div class="panel">
+        <h1>CLOUD9 <span>STRIKE</span></h1>
+        <p class="tagline">First-person tactical shooter. Plant the Charge. Win 5 rounds.</p>
+        <div class="howto">
+          <p><b>WASD</b> move &nbsp;·&nbsp; <b>Mouse</b> look (click to lock) &nbsp;·&nbsp; <b>Click</b> shoot</p>
+          <p><b>R</b> reload &nbsp;·&nbsp; <b>Q</b> smoke &nbsp;·&nbsp; <b>Space</b> dash &nbsp;·&nbsp; <b>Shift</b> walk slow</p>
+          <p><b>Esc</b> pause &nbsp;·&nbsp; <b>M</b> mute</p>
+          <p>Stand in Site A or B to plant the Charge. Guard it till it blows.</p>
+          <p>On mobile: left stick to move, drag right side to look, FIRE to shoot.</p>
+        </div>
+        <button id="start-btn" class="btn primary big">▶ START MATCH</button>
+        <p class="fine">First to 5 rounds wins. You always attack — Volt carries the Charge.</p>
+      </div>
+    </div>
+
+    <div id="pause-screen" class="overlay hidden">
+      <div class="panel">
+        <h1>PAUSED</h1>
+        <p>Take a breath. The Charge isn't going anywhere.</p>
+        <button id="resume-btn" class="btn primary big">▶ RESUME</button>
+        <button id="restart-btn" class="btn">↻ RESTART MATCH</button>
+      </div>
+    </div>
+
+    <div id="end-screen" class="overlay hidden">
+      <div class="panel">
+        <h1 id="end-title">VICTORY</h1>
+        <p id="end-sub">Cloud9 takes the match.</p>
+        <div id="end-stats"></div>
+        <button id="play-again-btn" class="btn primary big">↻ PLAY AGAIN</button>
+      </div>
+    </div>
+
+    <div id="touch-controls" class="hidden">
+      <div id="stick"><div id="stick-knob"></div></div>
+      <div id="touch-buttons">
+        <button id="btn-fire" class="tbtn fire">FIRE</button>
+        <button id="btn-smoke" class="tbtn">SMOKE</button>
+        <button id="btn-dash" class="tbtn">DASH</button>
+        <button id="btn-reload" class="tbtn">RLD</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="hud">
+    <div class="hud-block">
+      <div class="hud-label">HEALTH</div>
+      <div class="bar"><div id="hp-bar"></div></div>
+      <div class="hud-sub"><span id="hp-text">100</span> HP · <span id="armor-text">0</span> ARMOR</div>
+    </div>
+    <div class="hud-block">
+      <div class="hud-label">WEAPON</div>
+      <div id="weapon-name">Pistol</div>
+      <div class="hud-sub"><span id="ammo-text">12 / 36</span> · <span id="weapon-dmg"></span></div>
+    </div>
+    <div class="hud-block">
+      <div class="hud-label">ABILITIES</div>
+      <div class="hud-sub">Q Smoke: <span id="smoke-cd">READY</span> · Space Dash: <span id="dash-cd">READY</span></div>
+      <div class="hud-sub">Kills: <span id="kills">0</span> · Deaths: <span id="deaths">0</span> · Plants: <span id="plants">0</span></div>
+    </div>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
