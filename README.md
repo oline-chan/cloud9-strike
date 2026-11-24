@@ -117,7 +117,7 @@ FIRE button to shoot (with a little aim assist), SMOKE / DASH / RLD buttons.
   an idle player in simulation).
 - Pointer Lock behaviour varies by browser; mobile touch look is untested on
   a real phone.
-- No demo video, no GitHub repo, no deploy yet.
+- Demo video: https://www.youtube.com/watch?v=p3JxFRVN7PI - Repo: https://github.com/oline-chan/cloud9-strike
 
 ## License
 
